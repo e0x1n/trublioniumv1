@@ -72,7 +72,7 @@
     // Charger l'objectif depuis obj.txt
     async function loadObjective() {
       try {
-        const response = await fetch('obj.txt');
+        const response = await fetch('/obj');
         const text = await response.text();
         objectif = parseInt(text.trim());
       } catch (error) {
@@ -80,10 +80,10 @@
       }
     }
 
-    // Charger les données depuis data.json
+    // Charger les données depuis le backend
     async function loadData() {
       try {
-        const response = await fetch('data.json');
+        const response = await fetch('/data');
         const data = await response.json();
         tableData = data;
         populateTable(data);
@@ -95,10 +95,10 @@
       }
     }
 
-    // Sauvegarder les données dans data.json (nécessite un backend)
+    // Sauvegarder les données via le backend
     async function saveData(data) {
       try {
-        const response = await fetch('/save', {
+        const response = await fetch('/data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -143,7 +143,7 @@
       tableData.push(newEntry);
       populateTable(tableData);
 
-      // Sauvegarder les données dans le fichier JSON
+      // Sauvegarder les données via le backend
       saveData(tableData);
 
       // Calculer le pourcentage atteint
