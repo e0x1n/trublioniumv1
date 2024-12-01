@@ -37,6 +37,18 @@ app.post('/data', (req, res) => {
   });
 });
 
+// Endpoint pour lire l'objectif depuis obj.txt
+app.get('/obj', (req, res) => {
+    fs.readFile('obj.txt', 'utf8', (err, data) => {
+      if (err) {
+        console.error('Erreur lors de la lecture de obj.txt :', err);
+        res.status(500).send('Erreur serveur');
+      } else {
+        res.send(data.trim()); // Renvoie le contenu brut de obj.txt
+      }
+    });
+  });  
+
 // Démarrage du serveur
 app.listen(PORT, () => {
   console.log(`Serveur en cours d'exécution sur le port ${PORT}`);

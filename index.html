@@ -74,9 +74,16 @@
       try {
         const response = await fetch('/obj');
         const text = await response.text();
-        objectif = parseInt(text.trim());
+        const parsedObjective = parseInt(text.trim());
+        if (isNaN(parsedObjective)) {
+          console.error('L’objectif n’est pas un nombre valide. Utilisation de la valeur par défaut : 100.');
+          objectif = 100; // Valeur par défaut
+        } else {
+          objectif = parsedObjective;
+        }
       } catch (error) {
         console.error('Erreur lors du chargement de l’objectif :', error);
+        objectif = 100; // Valeur par défaut en cas d'erreur
       }
     }
 
@@ -146,8 +153,8 @@
       // Sauvegarder les données via le backend
       saveData(tableData);
 
-      // Calculer le pourcentage atteint
-      const pourcentage = ((totalCumul / objectif) * 100).toFixed(2);
+      // Calculer le pourcentage atteint (vérifiez que l'objectif est correct)
+      const pourcentage = objectif > 0 ? ((totalCumul / objectif) * 100).toFixed(2) : 0;
 
       document.getElementById('orbes-count').textContent = `${totalCumul} orbes !`;
       document.getElementById('percentage-goal').textContent = `${pourcentage}`;
