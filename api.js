@@ -1,12 +1,21 @@
 const express = require('express');
+const path = require('path');
 const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middleware pour parser le JSON
 app.use(express.json());
-app.use(express.static('public')); // Servir les fichiers statiques dans un dossier public
 
-// Endpoint pour lire les données JSON
+// Servir les fichiers statiques
+app.use(express.static(path.join(__dirname)));
+
+// Endpoint pour la racine "/"
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Endpoint pour charger les données JSON
 app.get('/data', (req, res) => {
   fs.readFile('data.json', 'utf8', (err, data) => {
     if (err) {
@@ -19,7 +28,7 @@ app.get('/data', (req, res) => {
 
 // Endpoint pour sauvegarder les données JSON
 app.post('/data', (req, res) => {
-  fs.writeFile('data.json', JSON.stringify(req.body, null, 2), 'utf8', err => {
+  fs.writeFile('data.json', JSON.stringify(req.body, null, 2), 'utf8', (err) => {
     if (err) {
       res.status(500).send('Erreur lors de la sauvegarde des données');
     } else {
@@ -28,6 +37,7 @@ app.post('/data', (req, res) => {
   });
 });
 
+// Démarrage du serveur
 app.listen(PORT, () => {
-  console.log(`Serveur démarré sur le port ${PORT}`);
+  console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
 });
