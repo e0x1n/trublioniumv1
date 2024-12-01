@@ -1,0 +1,160 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: #1d1d2e;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+  
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #2e2e4f;
+    border: 5px solid #5a5a8a;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+  
+header h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 0 #8a5a00, 4px 4px 0 #333;
+}
+  
+.hidden {
+    display: none;
+}
+  
+.form-container {
+    margin-top: 30px; /* Espace entre le titre et la section */
+}
+
+.form-container p {
+    font-size: 1.2em;
+    margin-bottom: 20px; /* Espace après "Orbes collectées :" */
+    color: #ff4d4d; /* Rougeoyant */
+    text-shadow: 1px 1px 2px #b30000, 2px 2px 5px #ff6666; /* Ombres pour effet lumineux */
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0; /* Espace entre chaque champ */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.form-group label {
+    font-size: 1.1em;
+    flex: 1;
+    text-align: left;
+    margin-right: 10px;
+}
+  
+.form-group input {
+    flex: 0 0 70px; /* Ajuste la largeur pour 3 chiffres maximum */
+    padding: 5px;
+    border: 2px solid #5a5a8a;
+    border-radius: 5px;
+    background: #1d1d2e;
+    color: #fff;
+    text-align: center;
+}
+  
+.button-container {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    display: flex; /* Utilisation de Flexbox */
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical si nécessaire */
+    text-align: center;
+}
+
+.button-container button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ffd700, #ffb800); /* Dégradé doré */
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3); /* Effet brillant */
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-container button:hover {
+    background: linear-gradient(90deg, #ffcc00, #ffa500);
+    box-shadow: 0 0 15px rgba(255, 200, 0, 0.7), 0 0 30px rgba(255, 200, 0, 0.5);
+    transform: scale(1.05); /* Léger agrandissement au survol */
+}
+
+.button-container button .emoji {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #1d1d2e;
+}
+  
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #5a5a8a;
+}
+  
+th {
+    background: #5a5a8a;
+    color: #fff;
+    font-size: 1.1em;
+}
+  
+td {
+    background: #2e2e4f;
+}
+  
+.result-message {
+    text-align: center;
+    margin: 30px 0; /* Plus d'espace autour */
+    font-size: 1.8em; /* Taille légèrement réduite */
+    color: #fff;
+    text-shadow: 1px 1px 0 #8a5a00, 2px 2px 0 #333;
+}
+
+.result-message p {
+    margin: 15px 0; /* Plus d'espacement entre les paragraphes */
+}
+
+.result-message .objective-text {
+    font-size: 1.2em;
+    color: #ffcc00; /* Couleur dorée */
+    line-height: 1.6; /* Espacement entre les lignes */
+    text-shadow: 1px 1px 0 #8a5a00, 2px 2px 0 #333;
+    margin-top: 50px;
+}
+
+.result-message .objective-text span#percentage-goal {
+    font-size: 1.2em; /* Taille du pourcentage */
+    color: #ff4d4d; /* Rougeoyant */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #b30000, 2px 2px 5px #ff6666; /* Ombres pour effet lumineux */
+}
+
+.result-message .objective-text .highlight {
+    font-size: 1em; /* Taille réduite pour "l'objectif" */
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 1px 1px 0 #8a5a00, 2px 2px 0 #333;
+}
